@@ -9,3 +9,40 @@ service firebase.storage {
     }
   }
 }
+
+
+/// CHỗ này là chiến sửa hiển thị list sách
+
+//Create panel for each book found
+	for (var i = 0; i < numChild; ++i){
+		if (dataArr[i].name.toUpperCase().indexOf(filter) > -1){
+			found = true;
+
+			var xxx = dataArr[i].name.substring(0,25) + "..." ;
+
+			content.insertAdjacentHTML('beforeend', 
+
+			'<div id = "book-id-1" class = "card col-md-3">' +  
+				'<div class="panel panel-default" id = "panel1">' +     
+
+			        '<div class="panel-body text-center">' +
+			          	'<img height="250" src = "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/The_4-Hour_Workweek_%28front_cover%29.jpg/220px-The_4-Hour_Workweek_%28front_cover%29.jpg">' +
+			          	
+			        '</div>' +
+
+					'<h4>' + xxx + '</h4>' +
+			        '<p>' + dataArr[i].information.substring(0,25) +'</p>' +
+
+			        // nút order
+			        '<div class="panel-footer text-center">' +
+			          	'<button class="btn btn-lg order-btn"' +
+			          	' data-toggle = "modal" data-target = "#book-order-modal"' + 
+			          	' id = "order-id-' + i + '"' +
+			          	' onclick = "openOrderModal(' + i + ')"' +
+			          	'>Order</button>' +
+			        '</div>' +
+
+
+			    '</div>' +
+
+			'</div>'
